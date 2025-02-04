@@ -12,8 +12,14 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
+
     private JsonFileService jsonFileService;
+
+
+    @Autowired
+    public UserController(JsonFileService jsonFileService){
+        this.jsonFileService=jsonFileService;
+    }
 
     @GetMapping
     public List<Login> getAllLogins() throws IOException {
